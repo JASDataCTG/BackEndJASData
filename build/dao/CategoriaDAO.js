@@ -72,6 +72,7 @@ class CategoriaDAO {
     static eliminarCategoria(parametro, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const llave = { _id: parametro };
+            //Para modificar apenas se tenga ProductoEsquema
             const cantidad = yield CategoriaEsquema_1.default.countDocuments({
                 codPerfil: llave,
             });

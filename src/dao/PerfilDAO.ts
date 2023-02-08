@@ -89,27 +89,33 @@ class PerfilDAO {
   }
   // ************************************************************************************
 
-// Actualizar perfil por código y con body JSON
-    // ************************************************************************************
-    protected static async actualizarPerfil(codigo: string, parametros: any, res: Response): Promise<any> {
-      const existe = await PerfilEsquema.findById(codigo).exec();
-      if (existe) {
-          PerfilEsquema.findByIdAndUpdate(
-              { _id: codigo },
-              { $set: parametros },
-              (miError: any, objeto: any) => {
-                  if (miError) {
-                      res.status(400).json({ respuesta: 'Error al actualizar el Perfil' });
-                  } else {
-                      res.status(200).json({ antiguo: objeto, nuevo: parametros });
-                  }
-              });
-      } else {
-          res.status(400).json({ respuesta: "El perfil NO existe" });
-      }
+  // Actualizar perfil por código y con body JSON
+  // ************************************************************************************
+  protected static async actualizarPerfil(
+    codigo: string,
+    parametros: any,
+    res: Response
+  ): Promise<any> {
+    const existe = await PerfilEsquema.findById(codigo).exec();
+    if (existe) {
+      PerfilEsquema.findByIdAndUpdate(
+        { _id: codigo },
+        { $set: parametros },
+        (miError: any, objeto: any) => {
+          if (miError) {
+            res
+              .status(400)
+              .json({ respuesta: "Error al actualizar el Perfil" });
+          } else {
+            res.status(200).json({ antiguo: objeto, nuevo: parametros });
+          }
+        }
+      );
+    } else {
+      res.status(400).json({ respuesta: "El perfil NO existe" });
+    }
   }
   // ************************************************************************************
-
-};
+}
 
 export default PerfilDAO;

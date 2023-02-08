@@ -106,7 +106,9 @@ class PerfilDAO {
             if (existe) {
                 PerfilEsquema_1.default.findByIdAndUpdate({ _id: codigo }, { $set: parametros }, (miError, objeto) => {
                     if (miError) {
-                        res.status(400).json({ respuesta: 'Error al actualizar el Perfil' });
+                        res
+                            .status(400)
+                            .json({ respuesta: "Error al actualizar el Perfil" });
                     }
                     else {
                         res.status(200).json({ antiguo: objeto, nuevo: parametros });
@@ -119,5 +121,4 @@ class PerfilDAO {
         });
     }
 }
-;
 exports.default = PerfilDAO;

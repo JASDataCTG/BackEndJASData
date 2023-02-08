@@ -65,6 +65,7 @@ class CategoriaDAO {
     res: Response
   ): Promise<any> {
     const llave = { _id: parametro };
+    //Para modificar apenas se tenga ProductoEsquema
     const cantidad = await CategoriaEsquema.countDocuments({
       codPerfil: llave,
     });
