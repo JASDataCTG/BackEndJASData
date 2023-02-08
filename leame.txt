@@ -1,0 +1,44 @@
+# Crear el paquete package.json
+npm init
+
+# Librerías necesarias
+npm i cors # Para permitir el acceso o no al BackEnd
+npm i morgan # Loger de las peticiones HTTP al BackEnd
+npm i express # Para desarrollar la aplicación JS en el BackEnd
+npm i mongoose # Para trabajar con MongoDB
+npm i bcryptjs # Para encriptar contraseñas
+npm i jsonwebtoken # Recibir y enviar tokens
+
+# Instalar extensión dotenv
+npm i dotenv
+
+# Extensiones para desarrolladores
+npm i --save-dev # Trabajar con archivos de configuración en tiempo de desarrollo
+npm i nodemon --save-dev # Permite compilar automaticamente
+
+# Librerias para facilitar el desarrollo
+npm i @types/cors --save-dev
+npm i @types/morgan --save-dev
+npm i @types/express --save-dev
+npm i @types/jsonwebtoken --save-dev
+
+# Agregar typescript
+tsc --init
+
+# Quitar comentario a la linea 52 de tsconfig.json para crear carpeta build
+"outDir": "./build",
+
+# Agregar scripts en el package.json
+"dev": "nodemon build/index.js",
+"build": "tsc -w"
+
+# Crear carpeta src con subcarpetas
+entidad
+esquema
+dao
+controlador
+ruta
+
+# Instalar bcrypt y jsonwebtoken para manejar cifrado y seguridad
+npm i bcryptjs
+npm i @types/bcryptjs
